@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 # white spaces are a great deal in bash script, absence of them, or presence, where should not, causes the programme to
 # malfunction, or even crash

@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 # a wildcard is the '*' used in place of a string, or a substring to include whatever
 # sequence that might apply to the argument

@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 # dealing with variables with bash is quite sensitive
 # there cannot be any spaces between assignment operator or any of the operands

@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 # in programming, some tasks need to be repeated with slight difference at each time
 # hence came the idea of looping, bash has for & while loops

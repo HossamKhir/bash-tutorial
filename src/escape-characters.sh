@@ -1,4 +1,4 @@
-#! /usr/bin/bash
+#! /bin/bash
 
 # some characters can have special meaning to the terminal, so to differentiate the usages we use escape character '\'
 echo Hello      World   # this ignores the indentations

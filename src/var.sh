@@ -43,3 +43,96 @@ echo "MYVAR is: $MYVAR"
 
 # run in terminal
 #   MYVAR='Hi'; echo $MYVAR; . ./var.sh; echo $MYVAR;
+
+# predefined variables:
+# $0:   holds the name of the programme being executed
+# $1...$9:  hold the additional parameters called with the programme
+# $@:   holds all the parameters
+# $*:   holds all parameters, execluding whitespace & quotations
+# $#:   holds the number of the parameters
+
+echo "I was called with $# parameters"
+echo "My name is `basename $0`"
+echo "My first parameter is $1"
+echo "My second parameter is $2"
+echo "All parameters are $@"
+
+# in case the programme received more than 9 parameters, we can call shift command
+# 'shift' command keeps shifting the parameter list until $# becomes 0
+
+while [ $# -gt "0" ]
+do
+    echo "\$1 is $1"
+    shift
+done 
+
+# the $? variable holds the exit value of the last programme that run
+# check this quote:
+# One of the main causes of the fall of the Roman Empire was that,
+# lacking zero,
+# they had no way to indicate successful termination of their C Programs
+
+/usr/local/bin/my-command 
+if [ $? -ne "0" ]
+then
+    echo "Sorry, we had a problem there!"
+fi
+
+# $$:   process ID of the current running shell
+# $1:   process ID of the last run background process
+
+# IFS:  Internal Field Separator, the default value in it is "SPACE TAB NEWLINE"
+# it is advised to copy this variable's value before altering it, and resetting it afterwards
+old_IFS="$IFS"
+IFS=:
+echo "Please input some data separated by colons..."
+read x y z
+IFS="$old_IFS"
+echo "x is $x, y is $y, z is $z"
+
+# echo can be called with parameter -n, to disable automatic linebreak
+echo -n "Enter your name: "
+read name
+echo "Hello, $name"
+# some systems use echo \c
+echo "Enter your name: \c"
+read name
+echo "Hello, $name"
+
+# to overcome such folly and futility in the design
+if [ "`echo -n`" = '-n' ]
+then
+    n=""
+    c="\c"
+else
+    n="-n"
+    c=""
+fi
+
+echo $n Enter your name: $c
+read name
+echo "Hello, $name"
+
+# to call a command and receive its value, place it inside ``
+
+# accepting default value
+echo -en "What is your name: [ `whoami` ] "
+read name
+if [ -z "$name" ]
+then
+    name=`whoami`
+fi
+echo "Your name is: $name"
+
+# the same previous assignemt can be done using special feature of the shell: ':-'
+echo -en "What is your name: [ `whoami` ] "
+read name
+echo "Your name is: ${name:-`whoami`}"
+
+# the last one is special case, using the o/p of whoami which is the login name 'UID'
+# a more generic approach
+echo -en "What is your name: [ John Doe ] "
+read name
+echo "Your name is: ${name:-John Doe}"
+
+# setting a default value for undefined variables: using ":="

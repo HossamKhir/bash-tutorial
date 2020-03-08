@@ -29,6 +29,7 @@ ls -l /usr/bin/test
 #   -f  : file path exist?
 #   -X  : file executable?
 #   -n  : non-zero length variable?
+#   -z  : zero length variable?
 #   -a  : file exist?
 #   -e  : file exist?
 #   -S  : file is socket?

@@ -113,7 +113,7 @@ echo $n Enter your name: $c
 read name
 echo "Hello, $name"
 
-# to call a command and receive its value, place it inside ``
+# `command` indicate that the command enclosed is a command to be executed, and it catches that command
 
 # accepting default value
 echo -en "What is your name: [ `whoami` ] "
